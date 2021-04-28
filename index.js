@@ -1,34 +1,17 @@
-/*
- * Copyright 2016 Google Inc. All rights reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-'use strict';
-
 (function() {
   var Marzipano = window.Marzipano;
-  var bowser = window.bowser;
-  var screenfull = window.screenfull;
+  // var bowser = window.bowser;
+  // var screenfull = window.screenfull;
   var data = window.APP_DATA;
 
   // Grab elements from DOM.
   var panoElement = document.querySelector('#pano');
   var sceneNameElement = document.querySelector('#titleBar .sceneName');
-  var sceneListElement = document.querySelector('#sceneList');
+  // var sceneListElement = document.querySelector('#sceneList');
   var sceneElements = document.querySelectorAll('#sceneList .scene');
-  var sceneListToggleElement = document.querySelector('#sceneListToggle');
+  // var sceneListToggleElement = document.querySelector('#sceneListToggle');
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
-  var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
+  // var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
 
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
@@ -108,75 +91,74 @@
   });
 
   // Set up autorotate, if enabled.
-  var autorotate = Marzipano.autorotate({
-    yawSpeed: 0.03,
-    targetPitch: 0,
-    targetFov: Math.PI/2
-  });
-  if (data.settings.autorotateEnabled) {
-    autorotateToggleElement.classList.add('enabled');
-  }
+  // var autorotate = Marzipano.autorotate({
+  //   yawSpeed: 0.03,
+  //   targetPitch: 0,
+  //   targetFov: Math.PI/2
+  // });
+  // if (data.settings.autorotateEnabled) {
+  //   autorotateToggleElement.classList.add('enabled');
+  // }
 
   // Set handler for autorotate toggle.
-  autorotateToggleElement.addEventListener('click', toggleAutorotate);
+  // autorotateToggleElement.addEventListener('click', toggleAutorotate);
 
   // Set up fullscreen mode, if supported.
-  if (screenfull.enabled && data.settings.fullscreenButton) {
-    document.body.classList.add('fullscreen-enabled');
-    fullscreenToggleElement.addEventListener('click', function() {
-      screenfull.toggle();
-    });
-    screenfull.on('change', function() {
-      if (screenfull.isFullscreen) {
-        fullscreenToggleElement.classList.add('enabled');
-      } else {
-        fullscreenToggleElement.classList.remove('enabled');
-      }
-    });
-  } else {
-    document.body.classList.add('fullscreen-disabled');
-  }
+  // if (screenfull.enabled && data.settings.fullscreenButton) {
+  //   document.body.classList.add('fullscreen-enabled');
+  //   fullscreenToggleElement.addEventListener('click', function() {
+  //     screenfull.toggle();
+  //   });
+  //   screenfull.on('change', function() {
+  //     if (screenfull.isFullscreen) {
+  //       fullscreenToggleElement.classList.add('enabled');
+  //     } else {
+  //       fullscreenToggleElement.classList.remove('enabled');
+  //     }
+  //   });
+  // } else {
+  //   document.body.classList.add('fullscreen-disabled');
+  // }
 
   // Set handler for scene list toggle.
-  sceneListToggleElement.addEventListener('click', toggleSceneList);
+  // sceneListToggleElement.addEventListener('click', toggleSceneList);
 
   // Start with the scene list open on desktop.
-  if (!document.body.classList.contains('mobile')) {
-    showSceneList();
-  }
+  // if (!document.body.classList.contains('mobile')) {
+  //   showSceneList();
+  // }
 
   // Set handler for scene switch.
-  scenes.forEach(function(scene) {
-    var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
-    el.addEventListener('click', function() {
-      switchScene(scene);
-      // On mobile, hide scene list after selecting a scene.
-      if (document.body.classList.contains('mobile')) {
-        hideSceneList();
-      }
-    });
-  });
+  // scenes.forEach(function(scene) {
+  //   var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
+  //   el.addEventListener('click', function() {
+  //     switchScene(scene);
+  //     if (document.body.classList.contains('mobile')) {
+  //       hideSceneList();
+  //     }
+  //   });
+  // });
 
   // DOM elements for view controls.
-  var viewUpElement = document.querySelector('#viewUp');
-  var viewDownElement = document.querySelector('#viewDown');
-  var viewLeftElement = document.querySelector('#viewLeft');
-  var viewRightElement = document.querySelector('#viewRight');
-  var viewInElement = document.querySelector('#viewIn');
-  var viewOutElement = document.querySelector('#viewOut');
+  // var viewUpElement = document.querySelector('#viewUp');
+  // var viewDownElement = document.querySelector('#viewDown');
+  // var viewLeftElement = document.querySelector('#viewLeft');
+  // var viewRightElement = document.querySelector('#viewRight');
+  // var viewInElement = document.querySelector('#viewIn');
+  // var viewOutElement = document.querySelector('#viewOut');
 
   // Dynamic parameters for controls.
-  var velocity = 0.7;
-  var friction = 3;
+  // var velocity = 0.7;
+  // var friction = 3;
 
   // Associate view controls with elements.
-  var controls = viewer.controls();
-  controls.registerMethod('upElement',    new Marzipano.ElementPressControlMethod(viewUpElement,     'y', -velocity, friction), true);
-  controls.registerMethod('downElement',  new Marzipano.ElementPressControlMethod(viewDownElement,   'y',  velocity, friction), true);
-  controls.registerMethod('leftElement',  new Marzipano.ElementPressControlMethod(viewLeftElement,   'x', -velocity, friction), true);
-  controls.registerMethod('rightElement', new Marzipano.ElementPressControlMethod(viewRightElement,  'x',  velocity, friction), true);
-  controls.registerMethod('inElement',    new Marzipano.ElementPressControlMethod(viewInElement,  'zoom', -velocity, friction), true);
-  controls.registerMethod('outElement',   new Marzipano.ElementPressControlMethod(viewOutElement, 'zoom',  velocity, friction), true);
+  // var controls = viewer.controls();
+  // controls.registerMethod('upElement',    new Marzipano.ElementPressControlMethod(viewUpElement,     'y', -velocity, friction), true);
+  // controls.registerMethod('downElement',  new Marzipano.ElementPressControlMethod(viewDownElement,   'y',  velocity, friction), true);
+  // controls.registerMethod('leftElement',  new Marzipano.ElementPressControlMethod(viewLeftElement,   'x', -velocity, friction), true);
+  // controls.registerMethod('rightElement', new Marzipano.ElementPressControlMethod(viewRightElement,  'x',  velocity, friction), true);
+  // controls.registerMethod('inElement',    new Marzipano.ElementPressControlMethod(viewInElement,  'zoom', -velocity, friction), true);
+  // controls.registerMethod('outElement',   new Marzipano.ElementPressControlMethod(viewOutElement, 'zoom',  velocity, friction), true);
 
   function sanitize(s) {
     return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
@@ -206,20 +188,20 @@
     }
   }
 
-  function showSceneList() {
-    sceneListElement.classList.add('enabled');
-    sceneListToggleElement.classList.add('enabled');
-  }
+  // function showSceneList() {
+  //   sceneListElement.classList.add('enabled');
+  //   sceneListToggleElement.classList.add('enabled');
+  // }
 
-  function hideSceneList() {
-    sceneListElement.classList.remove('enabled');
-    sceneListToggleElement.classList.remove('enabled');
-  }
+  // function hideSceneList() {
+  //   sceneListElement.classList.remove('enabled');
+  //   sceneListToggleElement.classList.remove('enabled');
+  // }
 
-  function toggleSceneList() {
-    sceneListElement.classList.toggle('enabled');
-    sceneListToggleElement.classList.toggle('enabled');
-  }
+  // function toggleSceneList() {
+  //   sceneListElement.classList.toggle('enabled');
+  //   sceneListToggleElement.classList.toggle('enabled');
+  // }
 
   function startAutorotate() {
     if (!autorotateToggleElement.classList.contains('enabled')) {

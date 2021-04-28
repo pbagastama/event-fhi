@@ -59,10 +59,12 @@ a, a:hover, a:active, a:visited {
 /* If there is a fullscreen button the title bar must make space for it */
 body.fullscreen-enabled #titleBar {
   right: 80px;
+  /* display: none; */
 }
 
 body.fullscreen-enabled.mobile #titleBar {
   right: 100px;
+  /* display: none; */
 }
 
 /* If there are multiple scenes the title bar must make space for the scene list toggle */
@@ -96,7 +98,7 @@ body.multiple-scenes.mobile #titleBar {
 }
 
 #fullscreenToggle {
-  display: none;
+  /* display: none; */
   position: absolute;
   top: 0;
   right: 0;
@@ -130,7 +132,7 @@ body.fullscreen-enabled #fullscreenToggle {
 }
 
 #fullscreenToggle .icon.on {
-  display: none;
+  /* display: none; */
 }
 
 #fullscreenToggle .icon.off {
@@ -142,7 +144,7 @@ body.fullscreen-enabled #fullscreenToggle {
 }
 
 #fullscreenToggle.enabled .icon.off {
-  display: none;
+  /* display: none; */
 }
 
 #autorotateToggle {
@@ -779,7 +781,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 /* View control buttons */
 
 .viewControlButton {
-  display: none;
+  /* display: none; */
   position: absolute;
   bottom: 0;
   left: 50%;
