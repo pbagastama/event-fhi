@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Embedded Hotspots | Marzipano</title>
+<meta name="description" content="Use embedded hotspots to overlay content from different sources on a 360° image (e.g. YouTube, Google Maps, Twitter)." />
+<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+<link rel="stylesheet" href="//www.marzipano.net/demos/common/reset.css">
+<link rel="stylesheet" href="./event-embed/style.css">
+</head>
+<body>
+
+<div id="pano"></div>
+
+<!-- Different sources -->
+<div id="iframespot">
+  <!-- <div class="message">Select something to play!</div> -->
+  <div>
+    <iframe id="youtubeWithControls" width="1280" height="480" src="https://www.youtube.com/embed/pgTTMdxhmvw?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+  </div>
+</div>
+
+<ul id="iframeselect">
+  <li data-source="googleMaps">Google Maps</li>
+  <li data-source="youtube">YouTube</li>
+  <li data-source="youtubeWithControls">YouTube (UI)</li>
+  <!-- <li data-source="koloreyes">KolorEyes</li> -->
+</ul>
+
+<!-- <script src="../../build/marzipano.js" ></script>  -->
+<script src="./vendor/marzipano.js" ></script>
+
+<script src="./event-embed/index.js"></script>
+
+</body>
+</html>
